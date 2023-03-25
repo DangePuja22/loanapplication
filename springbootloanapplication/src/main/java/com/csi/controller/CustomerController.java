@@ -22,6 +22,9 @@ class Customer{
     private String custName;
 
     private double custAccountBalance;
+
+    private long custContactNumber;
+
 }
 @RestController
 @RequestMapping("/v1")
@@ -30,8 +33,13 @@ public class CustomerController {
 
     @GetMapping("/getcustlist")
     public ResponseEntity<List<Customer>> getCustList(){
-        return  ResponseEntity.ok(Stream.of(new Customer(121,"Pooja",67000),
-                new Customer(122,"Sakshi",90000)).collect(Collectors.toList()));
+        return  ResponseEntity.ok(Stream.of(new Customer(121,"Pooja",67000,67899876),
+                new Customer(122,"Sakshi",90000,98989898)).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/business")
+    public String sayBusiness(){
+        return "App Development";
     }
 
 }
